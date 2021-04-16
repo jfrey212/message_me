@@ -8,21 +8,18 @@
     <div class="ui fluid raised card chatbox">
       <div class="content">
         <div class="ui feed">
-          <%= render @messages %> <!-- This is some kind of rails convention for rendering the message partial in its directory, I need to look up how this works -->
+          <%= render @messages %>
         </div>
       </div>
       <div class="extra content">
-
-        <!-- NOTE form_for is depracated, form_with is now the accepted usage -->
-
-        <%= form_for(@message, html: {class: "ui reply form", role: "form"}, url: message_path) do |f| %>
+        <form class="ui reply form">
           <div class="field">
             <div class="ui fluid icon input">
-              <%= f.text_field :body %>
-              <%= f.button '<i class="bordered inverted orange edit icon"></i>'.html_safe %>
+              <input type="text" placeholder="Enter a message...">
+              <i class="bordered inverted orange edit icon"></i>
             </div>
           </div>
-          <% end %>
+        </form>
       </div>
     </div>
   </div>
